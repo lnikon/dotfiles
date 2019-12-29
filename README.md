@@ -4,7 +4,11 @@
 
 Copy this repo into `$HOME/.dotfiles` directory
 
-`git clone --recurse-submodules --remote-submodules https://github.com/lnikon/dotfiles`
+`cd $HOME`
+
+`mkdir .dotfiles`
+
+`git clone --recurse-submodules --remote-submodules https://github.com/lnikon/dotfiles .dotfiles`
 
 Make scripts executable
 
