@@ -34,6 +34,8 @@ Package management - [Vundle.vim](https://github.com/VundleVim/Vundle.vim)
 
 Git wrapping - [vim-fugitive](https://github.com/tpope/vim-fugitive)
 
+C/C++ autocompletion - [clang_complete](https://github.com/xavierd/clang_complete)
+
 ### Zsh
 
 A huuuuuge and nice set of everyting you'll ever need [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)
