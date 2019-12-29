@@ -40,7 +40,7 @@ A huuuuuge and nice set of everyting you'll ever need [oh-my-zsh](https://github
 
 ### Tmux
 
-Nothing speacial yet... Juse mouse is set on and splits are opening in the same path :)
+Nothing special yet... Juse mouse is set on and splits are opening in the same path :)
 
 Take a rest.
 
