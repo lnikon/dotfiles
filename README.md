@@ -1,6 +1,6 @@
-#dotfiles for fast arch/manjaro unrolling
+# dotfiles for fast arch/manjaro unrolling
 
-## installation
+## Installation
 
 Copy this repo into `$HOME/.dotfiles` directory
 
@@ -30,19 +30,27 @@ Run `install_dotfiles.sh` to unroll dotfiles
 
 ### Vim Plugins
 
-Package management - [Vundle.vim](https://github.com/VundleVim/Vundle.vim)
+#### Package management
 
-Git wrapping - [vim-fugitive](https://github.com/tpope/vim-fugitive)
+* [Vundle.vim](https://github.com/VundleVim/Vundle.vim)
 
-C/C++ autocompletion - [clang_complete](https://github.com/xavierd/clang_complete)
+#### Git Integration
 
-### Zsh
+* Git wrapping - [vim-fugitive](https://github.com/tpope/vim-fugitive)
 
-A huuuuuge and nice set of everyting you'll ever need [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)
+#### C/C++
 
-### Tmux
+* C/C++ Autocomplete with support of Clang - [clang_complete](https://github.com/xavierd/clang_complete)
 
+#### Shell(Zsh)
+
+* All-in-One plugin list for zsh [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)
+
+#### Tmux 
 Nothing special yet... Juse mouse is set on and splits are opening in the same path :)
 
+#### etc...
 Take a rest.
 
+# ToDo
+* Provide a human-worthy python script for automatic installation/linking
