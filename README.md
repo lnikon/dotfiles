@@ -42,7 +42,9 @@ Run `install_dotfiles.sh` to unroll dotfiles
 
 * C/C++ Autocomplete with support of Clang - [clang_complete](https://github.com/xavierd/clang_complete)
 
-#### Shell(Zsh)
+### Shell
+
+#### Zsh
 
 * All-in-One plugin list for zsh [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)
 
