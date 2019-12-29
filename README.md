@@ -26,5 +26,21 @@ Run `install_dotfiles.sh` to unroll dotfiles
 
 `./install_dotfiles.sh`
 
+## What's included
+
+### Vim Plugins
+
+Package management - [Vundle.vim](https://github.com/VundleVim/Vundle.vim)
+
+Git wrapping - [vim-fugitive](https://github.com/tpope/vim-fugitive)
+
+### Zsh
+
+A huuuuuge and nice set of everyting you'll ever need [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)
+
+### Tmux
+
+Nothing speacial yet... Juse mouse is set on and splits are opening in the same path :)
+
 Take a rest.
 
