@@ -1,7 +1,12 @@
 #dotfiles for fast arch/manjaro unrolling
 
 ## installation
-Make scripts executabl
+
+Copy this repo into `$HOME/.dotfiles` directory
+
+`git clone --recurse-submodules --remote-submodules https://github.com/lnikon/dotfiles`
+
+Make scripts executable
 
 `chmod +x install_pkgs.sh`
 
