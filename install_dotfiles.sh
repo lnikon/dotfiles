@@ -8,7 +8,8 @@ echo "Creating $old_dotfiles_dir for backup of any existing dotfiles in ~"
 mkdir -p $old_dotfiles_dir
 echo "...done"
 
-echo "Chainging to the $main_dotfiles_dir directory"
+echo "Changing to the $main_dotfiles_dir directory"
+[ ! -d $main_dotfiles_dir ] && mkdir $main_dotfiles_dir
 cd $main_dotfiles_dir
 echo "...done"
 
