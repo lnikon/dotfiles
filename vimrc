@@ -8,10 +8,11 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
+" better experience with git from vim
 Plugin 'tpope/vim-fugitive'
+
+" autocompletion for C/C++
+Plugin 'xavierd/clang_complete'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -35,3 +36,6 @@ set shiftround            " always indent/outdent to the nearest tabstop
 set expandtab             " use spaces instead of tabs
 set smarttab              " use tabs at the start of a line, spaces elsewhere
 set nowrap                " don't wrap text
+
+""" clang_complete
+let g:clang_library_path='/usr/lib/libclang.so'
