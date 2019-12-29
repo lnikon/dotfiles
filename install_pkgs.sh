@@ -9,5 +9,5 @@ sudo pacman -Syyu
 echo "...done\n"
 
 echo "Install minimal set of packages"
-sudo pacman --noconfirm -S wget curl git vim tmux zsh
+sudo pacman --noconfirm -S wget curl git vim tmux zsh cmake
 echo "...done\n"
