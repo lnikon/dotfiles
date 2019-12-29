@@ -10,7 +10,9 @@ Copy this repo into `$HOME/.dotfiles` directory
 
 `git clone --recurse-submodules --remote-submodules https://github.com/lnikon/dotfiles .dotfiles`
 
-Make scripts executable
+Change directory and make scripts executable
+
+`cd $HOME/.dotfiles`
 
 `chmod +x install_pkgs.sh`
 
