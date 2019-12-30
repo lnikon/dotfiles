@@ -19,9 +19,14 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 " file explorer
 Plugin 'tpope/vim-vinegar'
 
+" lsp support
+Plugin 'm-pilia/vim-ccls'
+Plugin 'dense-analysis/ale'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
+let mapleader=","            " override default leader
 filetype plugin indent on " filetype detection[ON] plugin[ON] indent[ON]
 set t_Co=256              " enable 256-color mode.
 syntax enable             " enable syntax highlighting (previously syntax on).
@@ -52,3 +57,19 @@ let g:cpp_class_decl_highlight = 1
 let g:cpp_posix_standard = 1
 let g:cpp_experimental_simple_template_highlight = 1
 let g:cpp_concepts_highlight = 1
+
+""" lsp support
+let g:ale_cpp_ccls_init_options = {
+            \   'cache': {
+            \       'directory': '/tmp/ccls/cache'
+            \   }
+            \ }
+
+""" ALE provided completion
+let g:ale_completion_enabled = 1
+
+""" ALE provided code navigation
+nn <silent> <leader>d :ALEGoToDefinition<cr>
+nn <silent> <M-r> :ALEFindReferences<cr>
+nn <silent> <M-a> :ALESymbolSearch<cr>
+nn <silent> <M-h> :ALEHover<cr>

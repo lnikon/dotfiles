@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =8
+let g:netrw_dirhistcnt =9
+let g:netrw_dirhist_9='/home/nikon/compilers/simple-virtual-machine'
 let g:netrw_dirhist_8='/home/nikon/cpp/codeforces'
 let g:netrw_dirhist_7='/home/nikon/cpp/codeforces/2048_Game'
 let g:netrw_dirhist_6='/home/nikon/compilers/simple-virtual-machine'
