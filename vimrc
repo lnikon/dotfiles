@@ -6,13 +6,18 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
+Plugin 'VundleVim/Vundle.vim' 
 " better experience with git from vim
 Plugin 'tpope/vim-fugitive'
 
 " autocompletion for C/C++
 Plugin 'xavierd/clang_complete'
+
+" syntax highlight
+Plugin 'octol/vim-cpp-enhanced-highlight'
+
+" file explorer
+Plugin 'tpope/vim-vinegar'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -39,3 +44,11 @@ set nowrap                " don't wrap text
 
 """ clang_complete
 let g:clang_library_path='/usr/lib/libclang.so'
+
+""" C++ syntax highlight
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+let g:cpp_posix_standard = 1
+let g:cpp_experimental_simple_template_highlight = 1
+let g:cpp_concepts_highlight = 1

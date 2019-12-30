@@ -41,6 +41,10 @@ Run `install_dotfiles.sh` to unroll dotfiles
 #### C/C++
 
 * C/C++ Autocomplete with support of Clang - [clang_complete](https://github.com/xavierd/clang_complete)
+* C/C++ Syntax Enhanced [vim-cpp-enhanced-highlight](https://github.com/octol/vim-cpp-enhanced-highlight)
+
+#### Others
+* File Explorer [vim-vinegar](https://github.com/tpope/vim-vinegar)
 
 ### Shell
 
