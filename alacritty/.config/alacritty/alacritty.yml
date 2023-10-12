@@ -31,8 +31,8 @@ window:
   # least `2`, while using a value of `0` for columns and lines will fall back
   # to the window manager's recommended size
   dimensions:
-    columns: 1920
-    lines: 1080
+    columns: 200
+    lines: 60
 
   # Window position (changes require restart)
   #
@@ -113,13 +113,13 @@ window:
   #   - None (default)
   #option_as_alt: None
 
-scrolling:
+# scrolling:
   # Maximum number of lines in the scrollback buffer.
   # Specifying '0' will disable scrolling.
-  history: 100000
+  # history: 100000
 
   # Scrolling distance multiplier.
-  multiplier: 3
+  # multiplier: 3
 
 # Font configuration
 font:
@@ -134,7 +134,7 @@ font:
     family: DejaVuSansMono
 
     # The `style` can be specified to pick a specific face.
-    # style: Regular
+    style: Regular
 
   # Bold font face
   # bold:
@@ -197,11 +197,11 @@ font:
 #draw_bold_text_with_bright_colors: false
 
 # Colors (Tomorrow Night)
-#colors:
+colors:
   # Default colors
-  #primary:
-  #  background: '#1d1f21'
-  #  foreground: '#c5c8c6'
+  primary:
+   background: '#1d1f21'
+   foreground: '#c5c8c6'
 
     # Bright and dim foreground colors
     #
@@ -209,8 +209,8 @@ font:
     # present. If the bright foreground color is not set, or
     # `draw_bold_text_with_bright_colors` is `false`, the normal foreground
     # color will be used.
-    #dim_foreground: '#828482'
-    #bright_foreground: '#eaeaea'
+    # dim_foreground: '#828482'
+    # bright_foreground: '#eaeaea'
 
   # Cursor colors
   #
@@ -293,40 +293,40 @@ font:
   #  background: CellForeground
 
   # Normal colors
-  #normal:
-  #  black:   '#1d1f21'
-  #  red:     '#cc6666'
-  #  green:   '#b5bd68'
-  #  yellow:  '#f0c674'
-  #  blue:    '#81a2be'
-  #  magenta: '#b294bb'
-  #  cyan:    '#8abeb7'
-  #  white:   '#c5c8c6'
+  normal:
+   black:   '#1d1f21'
+   red:     '#cc6666'
+   green:   '#b5bd68'
+   yellow:  '#f0c674'
+   blue:    '#81a2be'
+   magenta: '#b294bb'
+   cyan:    '#8abeb7'
+   white:   '#c5c8c6'
 
   # Bright colors
-  #bright:
-  #  black:   '#666666'
-  #  red:     '#d54e53'
-  #  green:   '#b9ca4a'
-  #  yellow:  '#e7c547'
-  #  blue:    '#7aa6da'
-  #  magenta: '#c397d8'
-  #  cyan:    '#70c0b1'
-  #  white:   '#eaeaea'
+  bright:
+   black:   '#666666'
+   red:     '#d54e53'
+   green:   '#b9ca4a'
+   yellow:  '#e7c547'
+   blue:    '#7aa6da'
+   magenta: '#c397d8'
+   cyan:    '#70c0b1'
+   white:   '#eaeaea'
 
   # Dim colors
   #
   # If the dim colors are not set, they will be calculated automatically based
   # on the `normal` colors.
-  #dim:
-  #  black:   '#131415'
-  #  red:     '#864343'
-  #  green:   '#777c44'
-  #  yellow:  '#9e824c'
-  #  blue:    '#556a7d'
-  #  magenta: '#75617b'
-  #  cyan:    '#5b7d78'
-  #  white:   '#828482'
+  dim:
+   black:   '#131415'
+   red:     '#864343'
+   green:   '#777c44'
+   yellow:  '#9e824c'
+   blue:    '#556a7d'
+   magenta: '#75617b'
+   cyan:    '#5b7d78'
+   white:   '#828482'
 
   # Indexed Colors
   #
