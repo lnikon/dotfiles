@@ -42,13 +42,23 @@ require('lazy').setup({
 
   {
     "nvim-tree/nvim-tree.lua",
+    opts = {
+      actions = {
+        open_file = {
+          resize_window = true,
+        },
+      },
+      view = {
+        width = {}
+      }
+    },
     version = "*",
     lazy = false,
     dependencies = {
       "nvim-tree/nvim-web-devicons",
     },
-    config = function()
-      require("nvim-tree").setup {}
+    config = function(_, opts)
+      require("nvim-tree").setup(opts)
     end,
   },
 
@@ -281,7 +291,8 @@ vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = 
 vim.defer_fn(function()
   require('nvim-treesitter.configs').setup {
     -- Add languages to be installed here that you want installed for treesitter
-    ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'haskell' },
+    ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim',
+      'haskell' },
 
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
     auto_install = false,
