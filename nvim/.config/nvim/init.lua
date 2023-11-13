@@ -24,7 +24,7 @@ require('lazy').setup({
   'tpope/vim-rhubarb',
 
   -- Detect tabstop and shiftwidth automatically
-  'tpope/vim-sleuth',
+  -- 'tpope/vim-sleuth',
 
   {
     'neovim/nvim-lspconfig',
@@ -181,10 +181,9 @@ require('lazy').setup({
 
 -- Basic configuration
 vim.g.et = true
-vim.g.shiftwidth = 4
-vim.g.tabstop = 4
-vim.g.tabstop = 4
-vim.g.softtabstop = 4
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
 vim.g.smarttab = false
 vim.g.expandtab = true
 
