@@ -33,6 +33,8 @@ return require('packer').startup(function(use)
         branch = 'v3.x',
         requires = {
             {'williamboman/mason.nvim'},
+            {'mfussenegger/nvim-lint'},
+            {'rshkarin/mason-nvim-lint'},
             {'williamboman/mason-lspconfig.nvim'},
             {'neovim/nvim-lspconfig'},
             {'hrsh7th/nvim-cmp'},
@@ -45,4 +47,26 @@ return require('packer').startup(function(use)
             {'hrsh7th/cmp-cmdline'},
         }
     }
+
+    -- file explorer
+    use {
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v3.x",
+        requires = { 
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+            "MunifTanjim/nui.nvim",
+        }
+  }
+
+  -- annotations
+  use {
+      "danymat/neogen",
+      config = function()
+          require('neogen').setup {}
+      end,
+      requires = "nvim-treesitter/nvim-treesitter",
+      -- follow only stable versions
+      tag = "*"
+  }
 end)

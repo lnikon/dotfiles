@@ -7,4 +7,5 @@ require("vagag.colorscheme")
 require("vagag.treesitter")
 require("vagag.lsp")
 require("vagag.cmp")
+require("vagag.filetree")
 
