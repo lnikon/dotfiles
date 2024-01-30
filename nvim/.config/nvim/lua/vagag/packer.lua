@@ -16,6 +16,10 @@ return require('packer').startup(function(use)
         'rose-pine/neovim', name = "rose-pine"
     }
 
+    use {
+        'navarasu/onedark.nvim'
+    }
+
     -- better highlighting and text object handling
     use {
         'nvim-treesitter/nvim-treesitter',
