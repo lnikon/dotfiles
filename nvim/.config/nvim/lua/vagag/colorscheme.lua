@@ -6,3 +6,5 @@
 local onedark = require("onedark").load()
 vim.cmd("colorscheme onedark")
 
+-- tokyonight
+-- vim.cmd[[colorscheme tokyonight]]

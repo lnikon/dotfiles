@@ -73,4 +73,14 @@ return require('packer').startup(function(use)
       -- follow only stable versions
       tag = "*"
   }
+
+  -- provide lsp features for nvim's builtin globals
+  -- use {
+  --     "folke/neodev.nvim"
+  -- }
+
+  -- more colors!
+  -- use {
+  --     "folke/tokyonight.nvim"
+  -- }
 end)
