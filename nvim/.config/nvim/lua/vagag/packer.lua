@@ -74,6 +74,10 @@ return require('packer').startup(function(use)
       tag = "*"
   }
 
+  use {
+      'mhartington/formatter.nvim'
+  }
+
   -- provide lsp features for nvim's builtin globals
   -- use {
   --     "folke/neodev.nvim"
