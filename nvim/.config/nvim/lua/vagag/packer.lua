@@ -78,6 +78,12 @@ return require('packer').startup(function(use)
       'mhartington/formatter.nvim'
   }
 
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+    end
+  }
   -- provide lsp features for nvim's builtin globals
   -- use {
   --     "folke/neodev.nvim"
