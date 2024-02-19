@@ -11,4 +11,5 @@ require("vagag.filetree")
 require("vagag.lint")
 require("vagag.formatter")
 require("vagag.comment")
+require("vagag.debug")
 
