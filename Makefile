@@ -1,6 +1,9 @@
-.PHONY: all tmux nvim delete install
+.PHONY: all alacritty tmux nvim delete install
 
-all: tmux nvim
+all: alacritty tmux nvim
+
+alacritty:
+	stow --verbose --target=$$HOME --restow alacritty
 
 tmux:
 	stow --verbose --target=$$HOME --restow tmux
