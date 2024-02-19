@@ -2,7 +2,6 @@
 
 set -x
 
-STARTING_DIR=$(cwd)
 INSTALL_SCRIPT_DIR="${HOME}/.dotfiles/scripts/"
 
 if grep -q manjaro /etc/os-release; then
