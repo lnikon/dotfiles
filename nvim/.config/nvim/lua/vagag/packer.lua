@@ -89,6 +89,7 @@ return require("packer").startup(function(use)
 
 	use({
 		"mfussenegger/nvim-dap",
+		requires = { "nvim-neotest/nvim-nio" },
 	})
 
 	use({
@@ -103,6 +104,9 @@ return require("packer").startup(function(use)
 	})
 
 	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
+	use({
+		"m4xshen/hardtime.nvim",
+	})
 
 	-- provide lsp features for nvim's builtin globals
 	-- use {
@@ -113,4 +117,9 @@ return require("packer").startup(function(use)
 	-- use {
 	--     "folke/tokyonight.nvim"
 	-- }
+
+	use({
+		"nvim-lualine/lualine.nvim",
+		requires = { "nvim-tree/nvim-web-devicons", opt = true },
+	})
 end)
