@@ -38,6 +38,7 @@ return require("packer").startup(function(use)
 		"VonHeikemen/lsp-zero.nvim",
 		branch = "v3.x",
 		requires = {
+            -- Ordering of mason.nvim - nvim-lint - mason-nvim-lint is important
 			{ "williamboman/mason.nvim" },
 			{ "mfussenegger/nvim-lint" },
 			{ "rshkarin/mason-nvim-lint" },
@@ -89,6 +90,7 @@ return require("packer").startup(function(use)
 
 	use({
 		"mfussenegger/nvim-dap",
+        requires = { "nvim-neotest/nvim-nio" }
 	})
 
 	use({

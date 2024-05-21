@@ -8,9 +8,10 @@ end)
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-	ensure_installed = {'clangd', 'lua_ls', 'rust_analyzer', 'yamlls', 'jsonls', 'marksman', 'pyright', 'eslint', 'tsserver'},
+	ensure_installed = {'clangd', 'eslintd', 'lua_ls', 'rust_analyzer', 'yamlls', 'jsonls', 'marksman', 'pyright', 'tsserver'},
 	handlers = {
 		lsp_zero.default_setup,
 	},
 })
 
+require('lspconfig').eslintd.setup({})

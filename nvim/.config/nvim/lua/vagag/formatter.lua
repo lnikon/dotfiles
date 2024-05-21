@@ -9,8 +9,15 @@ require("formatter").setup({
 	log_level = vim.log.levels.WARN,
 	-- All formatter configurations are opt-in
 	filetype = {
-		js = {
-			require("formatter.filetypes.javascript"),
+		javascript = {
+			-- prettierd
+			function()
+				return {
+					exe = "prettierd",
+					args = { vim.api.nvim_buf_get_name(0) },
+					stdin = true,
+				}
+			end,
 		},
 		-- Formatter configurations for filetype "lua" go here
 		-- and will be executed in order
