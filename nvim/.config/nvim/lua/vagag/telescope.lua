@@ -2,10 +2,10 @@ local telescope = require('telescope')
 local builtin = require('telescope.builtin')
 
 telescope.setup({
-	defaults = {
-		-- Place the previewer and the prompt vertically
-		layout_strategy = 'vertical',
-	}
+    defaults = {
+        -- Place the previewer and the prompt vertically
+        layout_strategy = 'vertical',
+    }
 })
 
 local function open_diagnostics_for_current_buffer()

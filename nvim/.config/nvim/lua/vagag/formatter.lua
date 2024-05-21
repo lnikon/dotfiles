@@ -19,8 +19,17 @@ require("formatter").setup({
 				}
 			end,
 		},
-		-- Formatter configurations for filetype "lua" go here
-		-- and will be executed in order
+		cpp = {
+			function()
+				return {
+					exe = "clang-format",
+					args = {
+						"-i",
+					},
+					stdin = false,
+				}
+			end,
+		},
 		lua = {
 			-- "formatter.filetypes.lua" defines default configurations for the
 			-- "lua" filetype
@@ -58,3 +67,10 @@ require("formatter").setup({
 		},
 	},
 })
+
+vim.api.nvim_exec([[
+augroup FormatAutogroup
+  autocmd!
+  autocmd BufWritePost *.cpp FormatWrite
+augroup END
+]], true)

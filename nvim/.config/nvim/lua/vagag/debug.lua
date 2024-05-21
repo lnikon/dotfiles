@@ -1,7 +1,7 @@
 local dap = require("dap")
 local dapui = require("dapui")
 
-dapui.setup()
+-- dapui.setup()
 
 require("dap-vscode-js").setup({
 	-- node_path = "node", -- Path of node executable. Defaults to $NODE_PATH, and then "node"
