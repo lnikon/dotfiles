@@ -20,6 +20,7 @@ require("formatter").setup({
 			end,
 		},
 		cpp = {
+			-- clang-format
 			function()
 				return {
 					exe = "clang-format",
@@ -37,13 +38,7 @@ require("formatter").setup({
 
 			-- You can also define your own configuration
 			function()
-				-- Supports conditional formatting
-				if util.get_current_buffer_file_name() == "special.lua" then
-					return nil
-				end
-
-				-- Full specification of configurations is down below and in Vim help
-				-- files
+				-- stylua
 				return {
 					exe = "stylua",
 					args = {
@@ -68,9 +63,14 @@ require("formatter").setup({
 	},
 })
 
-vim.api.nvim_exec([[
+vim.api.nvim_exec(
+	[[
 augroup FormatAutogroup
   autocmd!
-  autocmd BufWritePost *.cpp FormatWrite
+  autocmd BufWritePost *.cpp *.js *.lua FormatWrite
+  autocmd BufWritePost *.js FormatWrite
+  autocmd BufWritePost *.lua FormatWrite
 augroup END
-]], true)
+]],
+	true
+)

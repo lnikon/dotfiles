@@ -1,5 +1,5 @@
 -- rose-pine
-local rosepine = require("rose-pine-main")
+local rosepine = require("rose-pine")
 vim.cmd("colorscheme rose-pine-main")
 
 -- onedark
