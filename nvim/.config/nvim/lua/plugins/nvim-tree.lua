@@ -34,7 +34,7 @@ nvim_tree.setup {
     centralize_selection = false,
     cursorline = true,
     debounce_delay = 15,
-    width = 34,
+    width = {},
     side = "left",
     preserve_window_proportions = false,
     number = false,
