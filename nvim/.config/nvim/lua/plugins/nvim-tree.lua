@@ -120,7 +120,7 @@ nvim_tree.setup {
   },
   update_focused_file = {
     enable = true,
-    update_root = true,
+    update_root = false,
     ignore_list = {},
   },
   system_open = {
@@ -170,9 +170,9 @@ nvim_tree.setup {
   actions = {
     use_system_clipboard = true,
     change_dir = {
-      enable = true,
-      global = false,
-      restrict_above_cwd = false,
+      enable = false,
+      -- global = false,
+      -- restrict_above_cwd = false,
     },
     expand_all = {
       max_folder_discovery = 300,
