@@ -127,13 +127,24 @@ local servers = { 'bashls', 'pyright', 'clangd', 'html', 'cssls', 'ts_ls' }
 
 -- Call setup
 for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = on_attach,
-    root_dir = root_dir,
-    capabilities = capabilities,
-    flags = {
-      -- default in neovim 0.7+
-      debounce_text_changes = 150,
-    }
-  }
+    if server == 'clangd'    then
+        lspconfig[lsp].setup {
+            on_attach = on_attach,
+            capabilities = capabilities,
+            flags = {
+                -- default in neovim 0.7+
+                debounce_text_changes = 150,
+            }
+        }
+    else
+        lspconfig[lsp].setup {
+            on_attach = on_attach,
+            root_dir = root_dir,
+            capabilities = capabilities,
+            flags = {
+                -- default in neovim 0.7+
+                debounce_text_changes = 150,
+            }
+        }
+    end
 end
