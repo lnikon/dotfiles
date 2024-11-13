@@ -38,6 +38,13 @@ end
 -- Start setup
 lazy.setup({
   spec = {
+    {
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
+        "neovim/nvim-lspconfig",
+    },
+
+
     --[[
     Colorscheme:
     The colorscheme should be available when starting Neovim.
@@ -139,6 +146,11 @@ lazy.setup({
     {
     'nvim-telescope/telescope.nvim', tag = '0.1.8',
      dependencies = { 'nvim-lua/plenary.nvim' }
+    },
+
+    -- Formatting
+    {
+        'mhartington/formatter.nvim'
     }
   },
 })

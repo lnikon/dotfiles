@@ -18,6 +18,7 @@ require("mason-lspconfig").setup({
 		"pyright",
 		"eslint",
 		"tsserver",
+        "prettierd"
 	},
 	handlers = {
 		lsp_zero.default_setup,

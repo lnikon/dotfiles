@@ -37,9 +37,10 @@ opt.scrolloff=10
 -- Tabs, indent
 -----------------------------------------------------------
 opt.expandtab = true        -- Use spaces instead of tabs
-opt.shiftwidth = 4          -- Shift 4 spaces when tab
-opt.tabstop = 4             -- 1 tab == 4 spaces
+opt.shiftwidth = 2          -- Shift 4 spaces when tab
+opt.tabstop = 2             -- 1 tab == 4 spaces
 opt.smartindent = true      -- Autoindent new lines
+opt.softtabstop = 2         -- 1 tab == 4 spaces while inserting
 
 -----------------------------------------------------------
 -- Memory, CPU
