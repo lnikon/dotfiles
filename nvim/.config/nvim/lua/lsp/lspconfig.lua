@@ -8,7 +8,11 @@
 -- For configuration see the Wiki: https://github.com/neovim/nvim-lspconfig/wiki
 -- Autocompletion settings of "nvim-cmp" are defined in plugins/nvim-cmp.lua
 require("mason").setup()
-require("mason-lspconfig").setup()
+
+local servers = { 'bashls', 'pyright', 'clangd', 'html', 'cssls', 'ts_ls', 'eslint_d' }
+require("mason-lspconfig").setup {
+    ensure_installed =  servers,
+}
 
 local lsp_status_ok, lspconfig = pcall(require, 'lspconfig')
 if not lsp_status_ok then
@@ -126,7 +130,6 @@ end
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches.
 -- Add your language server below:
-local servers = { 'bashls', 'pyright', 'clangd', 'html', 'cssls', 'ts_ls' }
 
 -- Call setup
 for _, lsp in ipairs(servers) do
