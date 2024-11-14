@@ -39,10 +39,12 @@ size = 14.0
 family = "FiraCode"
 style = "Regular"
 
-[shell]
+[terminal.shell]
 args = ["new-session", "-D"]
 program = "/bin/tmux"
 
 [window.dimensions]
 columns = 100
 lines = 40
+
+[terminal]
