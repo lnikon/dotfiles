@@ -1,3 +1,8 @@
+[general]
+import = [
+    "~/.config/alacritty/themes/themes/one_dark.toml"
+]
+
 [colors.bright]
 black = "#666666"
 blue = "#7aa6da"
@@ -39,9 +44,6 @@ size = 14.0
 family = "FiraCode"
 style = "Regular"
 
-[terminal.shell]
-args = ["new-session", "-D"]
-program = "/bin/tmux"
 
 [window.dimensions]
 columns = 100
