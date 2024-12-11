@@ -22,12 +22,12 @@ local servers = {
 	"ansiblels",
 	"lua_ls",
 	"vimls",
-    "sqlls",
-    "ruff",
-    "pbls",
-    "gopls",
-    "dockerls",
-    "neocmake"
+	"sqlls",
+	"ruff",
+	"pbls",
+	"gopls",
+	"dockerls",
+	"neocmake",
 }
 require("mason-lspconfig").setup({
 	ensure_installed = servers,
