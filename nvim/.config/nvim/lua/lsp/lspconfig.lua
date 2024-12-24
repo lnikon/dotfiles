@@ -24,7 +24,6 @@ local servers = {
 	"vimls",
     "sqlls",
     "ruff",
-    "pbls",
     "gopls",
     "dockerls",
     "neocmake"
