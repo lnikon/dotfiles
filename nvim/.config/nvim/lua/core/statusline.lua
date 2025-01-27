@@ -265,7 +265,7 @@ feline.setup {
     fg = colors.fg,
   },
   components = components,
-  vi_mode_colors = vi_mode_colors,
+  -- vi_mode_colors = vi_mode_colors,
   force_inactive = {
     filetypes = {
       '^NvimTree$',

@@ -92,9 +92,9 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, bufopts)
 	vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
 	vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
-	-- vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
 	vim.keymap.set("n", "<space>f", ":Format<CR>", bufopts)
-	-- vim.keymap.set('n', '<leader>s', vim.lsp.workspace.symbol, bufopts)
+	vim.keymap.set("n", "[d", vim.diagnostic.goto_next, opts)
+	vim.keymap.set("n", "]d", vim.diagnostic.goto_prev, opts)
 end
 
 -- Diagnostic settings:
@@ -153,10 +153,11 @@ end
 
 -- Call setup
 for _, lsp in ipairs(servers) do
-	if server == "clangd" then
+	if lsp == "clangd" then
 		lspconfig[lsp].setup({
 			on_attach = on_attach,
 			capabilities = capabilities,
+			filetypes = { "c", "h", "cpp" },
 			flags = {
 				-- default in neovim 0.7+
 				debounce_text_changes = 150,
