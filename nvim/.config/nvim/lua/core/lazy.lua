@@ -59,7 +59,7 @@ lazy.setup({
 		-- Other color schemes:
 		{ "rebelot/kanagawa.nvim", lazy = true },
 		{ "tanvirtin/monokai.nvim", lazy = true },
-		{ "https://github.com/rose-pine/neovim", name = "rose-pine", lazy = true },
+		{ "rose-pine/neovim", name = "rose-pine", lazy = true },
 
 		-- Icons
 		{ "kyazdani42/nvim-web-devicons", lazy = true },
@@ -86,6 +86,28 @@ lazy.setup({
 		-- Greatest Git plugin
 		{
 			"tpope/vim-fugitive",
+			lazy = false,
+		},
+
+		-- tpope really rocks!
+		{
+			"tpope/vim-surround",
+			lazy = false,
+		},
+
+		{
+			"tpope/vim-endwise",
+			lazy = false,
+		},
+
+		{
+			"tpope/vim-obsession",
+			lazy = false,
+		},
+
+		-- Better motions
+		{
+			"easymotion/vim-easymotion",
 			lazy = false,
 		},
 
@@ -156,6 +178,11 @@ lazy.setup({
 		-- AI
 		{
 			-- "github/copilot.vim",
+		},
+
+		{
+			"jedrzejboczar/possession.nvim",
+			requires = { "nvim-lua/plenary.nvim" },
 		},
 	},
 })

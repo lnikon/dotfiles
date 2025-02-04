@@ -1,4 +1,3 @@
-. ./.tokens.sh
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
@@ -104,9 +103,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export VCPKG_ROOT="/home/nikon/bin/vcpkg"
+export VCPKG_ROOT="${HOME}/bin/vcpkg"
 export VCPKG_DEFAULT_TRIPLET="x64-linux"
-export PATH="${HOME}.local/share/nvim/mason/bin":"${VCPKG_ROOT}":"/home/nikon/bin/go/bin":"${PATH}"
+export PATH="${HOME}.local/share/nvim/mason/bin":"${VCPKG_ROOT}":"${HOME}/bin/go/bin":"${PATH}"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
