@@ -15,6 +15,9 @@ require("formatter").setup({
 		cpp = {
 			require("formatter.filetypes.cpp").clangformat,
 		},
+		cmake = {
+			require("formatter.filetypes.cmake").cmakeformat,
+		},
 		javascript = {
 			require("formatter.filetypes.javascript").prettierd,
 		},

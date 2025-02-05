@@ -21,5 +21,6 @@ require('plugins/nvim-treesitter')
 require('plugins/alpha-nvim')
 require('plugins/telescope')
 require('plugins/formatter')
+require('plugins/possession')
 -- require('plugins/copilot')
 
