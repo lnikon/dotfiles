@@ -26,7 +26,10 @@ opt.cursorline = true -- Highlight current line
 -----------------------------------------------------------
 opt.number = true -- Show line number
 opt.showmatch = true -- Highlight matching parenthesis
-opt.foldmethod = "marker" -- Enable folding (default 'foldmarker')
+opt.foldenable = true
+opt.foldmethod = "expr" -- Enable folding
+opt.foldexpr = "nvim_treesitter#foldexpr()" -- Fold based on treesitter
+opt.foldlevel = 99 -- Disable automatic folding
 opt.colorcolumn = "150" -- Line lenght marker at 80 columns
 opt.splitright = true -- Vertical split to the right
 opt.splitbelow = true -- Horizontal split to the bottom
