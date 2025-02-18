@@ -177,9 +177,13 @@ lazy.setup({
 			-- "github/copilot.vim",
 		},
 
+		-- Session management
 		{
 			"jedrzejboczar/possession.nvim",
 			requires = { "nvim-lua/plenary.nvim" },
 		},
+
+		-- Bufferline
+		{ "akinsho/bufferline.nvim", version = "*", dependencies = "nvim-tree/nvim-web-devicons" },
 	},
 })
