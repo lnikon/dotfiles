@@ -22,5 +22,7 @@ require('plugins/alpha-nvim')
 require('plugins/telescope')
 require('plugins/formatter')
 require('plugins/possession')
+require('plugins/lualine')
+require('plugins/bufferline')
 -- require('plugins/copilot')
 

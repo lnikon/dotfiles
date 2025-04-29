@@ -119,11 +119,8 @@ lazy.setup({
 
 		-- Statusline
 		{
-			"freddiehaddad/feline.nvim",
-			dependencies = {
-				"kyazdani42/nvim-web-devicons",
-				"lewis6991/gitsigns.nvim",
-			},
+			"nvim-lualine/lualine.nvim",
+			dependencies = { "nvim-tree/nvim-web-devicons", "lewis6991/gitsigns.nvim" },
 		},
 
 		-- Treesitter
@@ -180,10 +177,14 @@ lazy.setup({
 			"github/copilot.vim",
 		},
 
+		-- Session management
 		{
 			"jedrzejboczar/possession.nvim",
 			requires = { "nvim-lua/plenary.nvim" },
 		},
+
+		-- Bufferline
+		{ "akinsho/bufferline.nvim", version = "*", dependencies = "nvim-tree/nvim-web-devicons" },
 	},
 
     {

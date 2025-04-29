@@ -18,6 +18,9 @@ require("formatter").setup({
 		cmake = {
 			require("formatter.filetypes.cmake").cmakeformat,
 		},
+		json = {
+			require("formatter.filetypes.json").prettierd,
+		},
 		javascript = {
 			require("formatter.filetypes.javascript").prettierd,
 		},

@@ -27,6 +27,7 @@ local servers = {
 	"gopls",
 	"dockerls",
 	"neocmake",
+    "csharp_ls"
 }
 require("mason-lspconfig").setup({
 	ensure_installed = servers,
