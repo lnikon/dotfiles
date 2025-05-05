@@ -43,9 +43,8 @@ color = "0xff5d62"
 size = 14.0
 
 [font.normal]
-family = "FiraCode"
+family = "KodeMono"
 style = "Regular"
-
 
 [window.dimensions]
 columns = 100
