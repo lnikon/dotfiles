@@ -28,11 +28,13 @@ local servers = {
 	"gopls",
 	"dockerls",
 	"neocmake",
-    "csharp_ls",
-    "zls"
+	"csharp_ls",
+	"zls",
 }
+
 require("mason-lspconfig").setup({
 	ensure_installed = servers,
+    automatic_enable = false,
 })
 
 local lsp_status_ok, lspconfig = pcall(require, "lspconfig")
@@ -155,25 +157,13 @@ end
 
 -- Call setup
 for _, lsp in ipairs(servers) do
-	if lsp == "clangd" then
-		lspconfig[lsp].setup({
-			on_attach = on_attach,
-			capabilities = capabilities,
-			filetypes = { "c", "h", "cpp" },
-			flags = {
-				-- default in neovim 0.7+
-				debounce_text_changes = 150,
-			},
-		})
-	else
-		lspconfig[lsp].setup({
-			on_attach = on_attach,
-			root_dir = root_dir,
-			capabilities = capabilities,
-			flags = {
-				-- default in neovim 0.7+
-				debounce_text_changes = 150,
-			},
-		})
-	end
+	lspconfig[lsp].setup({
+		on_attach = on_attach,
+		root_dir = root_dir,
+		capabilities = capabilities,
+		flags = {
+			-- default in neovim 0.7+
+			debounce_text_changes = 150,
+		},
+	})
 end
