@@ -120,7 +120,8 @@ M.rose_pine = {
 	red = "#ebbcba",
 }
 
-vim.cmd("colorscheme kanagawa")
+-- vim.cmd("colorscheme kanagawa")
+vim.cmd("colorscheme retrobox")
 
 -- Set status line color scheme
 return M.kanagawa
