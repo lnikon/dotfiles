@@ -24,6 +24,9 @@ require("formatter").setup({
 		javascript = {
 			require("formatter.filetypes.javascript").prettierd,
 		},
+        go = {
+			require("formatter.filetypes.go").gofmt,
+		},
 		-- Formatter configurations for filetype "lua" go here
 		-- and will be executed in order
 		lua = {
