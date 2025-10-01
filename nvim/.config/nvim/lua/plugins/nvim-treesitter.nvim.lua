@@ -1,6 +1,8 @@
+-- Upgrading to 'main' branch f-s up things, to will stay on master for a while.
+-- See: https://github.com/nvim-treesitter/nvim-treesitter/discussions/7927
 return {
 	"nvim-treesitter/nvim-treesitter",
-	branch = "main",
+	branch = "master",
 	lazy = false,
 	build = ":TSUpdate",
 	config = function()

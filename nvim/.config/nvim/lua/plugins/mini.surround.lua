@@ -1,1 +1,1 @@
-return { "vim-mini/mini.surround", opts = {}, version = "*" }
+return { "vim-mini/mini.surround", enabled = false, opts = {}, version = "*" }
