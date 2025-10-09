@@ -5,7 +5,7 @@ return {
         ensure_installed = {
             "clangd",
             "gopls",
-            "bash_ls",
+            "bashls",
             "neocmake",
             "buf_ls",
             "docker_language_server",
