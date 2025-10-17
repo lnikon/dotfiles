@@ -1,0 +1,51 @@
+return {
+	"stevearc/conform.nvim",
+	opts = {
+		format_on_save = true,
+		keys = {
+			{
+				-- Customize or remove this keymap to your liking
+				"<leader>f",
+				function()
+					require("conform").format({ async = true })
+				end,
+				mode = "",
+				desc = "Format buffer",
+			},
+		},
+		-- NOTE: Install formatters with Mason
+		formatters_by_ft = {
+			-- Specify the linter for each programming language.
+			lua = { "stylua" },
+			rust = { "rustfmt", lsp_format = "fallback" },
+			ocaml = { "ocamlformat" },
+			c = { "clang-format" },
+			cpp = { "clang-format" },
+			elixir = { "elixir-ls" },
+			julia = { "jupytext" },
+			clojure = { "cljfmt" },
+			fsharp = { "fantomas" },
+			cmake = { "cmakelang" },
+			proto = { "buf" },
+			python = function(bufnr)
+				if require("conform").get_formatter_info("ruff_format", bufnr).available then
+					return { "ruff_format" }
+				else
+					return { "black" }
+				end
+			end,
+		},
+		formatters = {
+			ocamlformat = {
+				prepend_args = {
+					"--if-then-else",
+					"vertical",
+					"--break-cases",
+					"fit-or-vertical",
+					"--type-decl",
+					"sparse",
+				},
+			},
+		},
+	},
+}

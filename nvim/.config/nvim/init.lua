@@ -1,28 +1,11 @@
---[[
+require("options")
 
-Neovim init file
-Maintainer: brainf+ck
-Website: https://github.com/brainfucksec/neovim-lua
+require("init_lazy")
 
---]]
+require("lsp")
 
--- Import Lua modules
-require('core/lazy')
-require('core/autocmds')
-require('core/keymaps')
-require('core/colors')
-require('core/statusline')
-require('core/options')
-require('lsp/lspconfig')
-require('plugins/nvim-tree')
-require('plugins/indent-blankline')
-require('plugins/nvim-cmp')
-require('plugins/nvim-treesitter')
-require('plugins/alpha-nvim')
-require('plugins/telescope')
-require('plugins/formatter')
-require('plugins/possession')
-require('plugins/lualine')
-require('plugins/bufferline')
--- require('plugins/copilot')
+require("init_mini")
 
+require("keymaps")
+
+require("colorscheme")
