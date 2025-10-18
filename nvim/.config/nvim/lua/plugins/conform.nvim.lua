@@ -25,8 +25,9 @@ return {
 			julia = { "jupytext" },
 			clojure = { "cljfmt" },
 			fsharp = { "fantomas" },
-			cmake = { "cmakelang" },
+			cmake = { "gersemi" },
 			proto = { "buf" },
+            toml = { "taplo" },
 			python = function(bufnr)
 				if require("conform").get_formatter_info("ruff_format", bufnr).available then
 					return { "ruff_format" }

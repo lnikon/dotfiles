@@ -7,16 +7,17 @@ return {
             "gopls",
             "bashls",
             "neocmake",
+            "cmake",
             "buf_ls",
             "docker_language_server",
             "lua_ls",
+            "taplo",
             "marksman",
             "ruff",
-            "tombi",
             "ts_ls",
             "yamlls",
             "zls",
-            "rust_analyzer"
+            "rust_analyzer",
         }
     },
     dependencies = {
