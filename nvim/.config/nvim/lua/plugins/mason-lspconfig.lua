@@ -11,6 +11,7 @@ return {
             "buf_ls",
             "docker_language_server",
             "lua_ls",
+            "stylua",
             "taplo",
             "marksman",
             "ruff",

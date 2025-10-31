@@ -33,6 +33,11 @@ vim.keymap.set("v", ">", ">gv", opts)
 -- Open mini.files navigation
 vim.keymap.set("n", "<C-n>", "<cmd>lua MiniFiles.open()<CR>", opts)
 
+-- Open neotree navigation
+vim.keymap.set("n", "<C-\\>", "<cmd>Neotree focus reveal reveal_force_cwd<CR>", opts)
+vim.keymap.set("n", "<leader>b", "<cmd>Neotree toggle show buffers right<CR>", opts)
+vim.keymap.set("n", "<leader>s", "<cmd>Neotree float git_status<CR>", opts)
+
 -- Overlook.nvim
 vim.keymap.set("n", "<leader>pd", require("overlook.api").peek_definition, { desc = "Peek definition" })
 vim.keymap.set("n", "<leader>pp", require("overlook.api").peek_cursor, { desc = "Peek cursor" })
