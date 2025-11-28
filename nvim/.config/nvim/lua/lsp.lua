@@ -15,6 +15,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 		keymap.set("n", "gr", lsp.buf.references, bufopts)
 		keymap.set("n", "gd", lsp.buf.definition, bufopts)
+		keymap.set("n", "gi", lsp.buf.implementation, bufopts)
 		keymap.set("n", "ca", lsp.buf.code_action, bufopts)
 		keymap.set("n", "<space>rn", lsp.buf.rename, bufopts)
 		keymap.set("n", "K", lsp.buf.hover, bufopts)
@@ -32,7 +33,7 @@ vim.lsp.enable({
 	"ruff",
 	"ts_ls",
 	"yaml_ls",
-    "taplo",
+	"taplo",
 	"cmake_ls",
 	"buf_ls",
 	"bash_ls",
