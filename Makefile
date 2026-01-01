@@ -1,4 +1,4 @@
-.PHONY: all alacritty tmux nvim zsh hyprlan waybar delete install
+.PHONY: all alacritty tmux nvim zsh hypr waybar delete install
 
 all: alacritty tmux nvim zsh hypr waybar
 
@@ -15,7 +15,7 @@ nvim:
 	stow --verbose --target=$$HOME --restow nvim
 
 hypr:
-	stow --verbose --target=$$HOME --restow hyprland
+	stow --verbose --target=$$HOME --restow hypr
 
 waybar:
 	stow --verbose --target=$$HOME --restow waybar
