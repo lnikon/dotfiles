@@ -1,13 +1,12 @@
-require("options")
+-- Set leader keys
+vim.g.mapleader = ","
+vim.g.maplocalleader = "\\"
 
-require("init_lazy")
+-- Load config modules
+require("config.options")
+require("config.lazy") -- Loads all plugins
+require("config.autocmds")
+require("config.keymaps")
 
-require("lsp")
-
-require("init_mini")
-
-require("keymaps")
-
-require("colorscheme")
-
+-- OCaml support
 vim.opt.rtp:prepend("/home/nikon/.opam/default/share/ocp-indent/vim")
