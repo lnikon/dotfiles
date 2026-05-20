@@ -1,25 +1,42 @@
 return {
-  -- Colorscheme
-  {
-    "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      vim.cmd.colorscheme("tokyonight")
-    end,
-  },
+    -- Colorscheme
+    -- {
+    -- 	"folke/tokyonight.nvim",
+    -- 	lazy = false,
+    -- 	priority = 1000,
+    -- 	config = function()
+    -- 		vim.cmd.colorscheme("tokyonight")
+    -- 	end,
+    -- },
 
-  -- Icons
-  {
-    "nvim-mini/mini.icons",
-    opts = {},
-    version = "*",
-  },
+    -- {
+    --     "rebelot/kanagawa.nvim",
+    --     lazy = false,
+    --     config = function()
+    --         vim.cmd("colorscheme kanagawa-dragon")
+    --     end,
+    -- },
 
-  -- Statusline
-  {
-    "nvim-mini/mini.statusline",
-    opts = {},
-    version = "*",
-  },
+    {
+        'felipefdl/warm-burnout',
+        priority = 1000,
+        config = function(plugin)
+            vim.opt.rtp:append(plugin.dir .. '/nvim')
+            vim.cmd.colorscheme 'warm-burnout-dark'
+        end,
+    },
+
+    -- Icons
+    {
+        "nvim-mini/mini.icons",
+        opts = {},
+        version = "*",
+    },
+
+    -- Statusline
+    {
+        "nvim-mini/mini.statusline",
+        opts = {},
+        version = "*",
+    },
 }
