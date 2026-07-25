@@ -1,6 +1,8 @@
 # Neovim Configuration
 
-Modern, streamlined Neovim configuration with 12 files and ~930 lines.
+Minimal Neovim 0.12 config. Relies on Neovim's built-in LSP keymaps, native
+completion, native formatting, and the native `vim.pack` plugin manager
+wherever possible. Only 6 plugins.
 
 ## Structure
 
@@ -10,224 +12,74 @@ Modern, streamlined Neovim configuration with 12 files and ~930 lines.
 ├── lua/
 │   ├── config/
 │   │   ├── options.lua         # Vim options
-│   │   ├── keymaps.lua         # Core keymaps
+│   │   ├── plugins.lua         # vim.pack.add() + plugin setup() calls
+│   │   ├── lsp.lua             # vim.lsp.enable() + LspAttach autocmd
 │   │   ├── autocmds.lua        # Autocommands
-│   │   └── lazy.lua            # Lazy.nvim setup
-│   ├── plugins/
-│   │   ├── ui.lua              # Colorscheme, statusline, icons
-│   │   ├── editor.lua          # Telescope, neo-tree, git, flash
-│   │   ├── coding.lua          # Completion, pairs, comments
-│   │   ├── lsp.lua             # LSP, mason, conform, trouble
-│   │   ├── treesitter.lua      # Treesitter config
-│   │   └── debug.lua           # DAP debugging
+│   │   └── keymaps.lua         # All keymaps
 │   └── lsp/
-│       └── servers.lua         # LSP server configs
-└── README.md                   # This file
+│       └── servers.lua         # Custom LSP server configs (clangd, lua_ls, cmake)
+└── README.md
 ```
 
-## Plugins (25 total)
+## Plugins (6)
 
-### Core (3)
-- **lazy.nvim** - Plugin manager
-- **plenary.nvim** - Lua utilities
-- **nui.nvim** - UI components
-
-### UI (4)
-- **tokyonight.nvim** - Colorscheme
-- **mini.icons** - Icon support
-- **mini.statusline** - Statusline
-- **neo-tree.nvim** - File explorer
-
-### Navigation (3)
+- **plenary.nvim** - Lua utilities (Neogit dependency)
 - **telescope.nvim** - Fuzzy finder
-- **telescope-fzf-native.nvim** - FZF sorter
-- **flash.nvim** - Enhanced motion
+- **oil.nvim** - File manager (edit a directory as a buffer)
+- **gitsigns.nvim** - Git hunk signs/staging in the gutter
+- **neogit** - Git UI
+- **nvim-treesitter** - Syntax highlighting (parsers not bundled with Neovim: c, cpp, lua, cmake)
+- **warm-burnout** - Colorscheme
 
-### Editor (4)
-- **mini.comment** - Commenting
-- **mini.pairs** - Auto-pairs
-- **mini.indentscope** - Indent guides
-- **gitsigns.nvim** - Git signs in gutter
+Managed with Neovim's built-in `vim.pack` (see `:h vim.pack`) — no plugin
+manager plugin. `vim.pack.update()` checks for updates; its lockfile lives at
+`~/.config/nvim/nvim-pack-lock.json`.
 
-### Completion (2)
-- **blink.cmp** - Completion engine
-- **friendly-snippets** - Snippet collection
+## What's built-in instead of a plugin
 
-### LSP (4)
-- **mason.nvim** - LSP installer
-- **mason-lspconfig.nvim** - Mason integration
-- **conform.nvim** - Formatting
-- **trouble.nvim** - Diagnostics UI
-
-### Git (1)
-- **vim-fugitive** - Git integration
-
-### Language (1)
-- **go.nvim** - Go-specific tooling
-
-### Debug (3)
-- **nvim-dap** - Debug adapter protocol
-- **nvim-dap-ui** - DAP UI
-- **nvim-nio** - Async I/O (DAP dependency)
-
-### Utilities (1)
-- **mini.bufremove** - Safe buffer deletion
+- **Completion**: `vim.lsp.completion.enable(..., { autotrigger = true })`, wired in `lsp.lua`.
+- **Formatting**: `vim.lsp.buf.format()` on save, gated on the attached client supporting it.
+- **LSP keymaps**: almost entirely Neovim core defaults — `grn` (rename), `gra`
+  (code action), `grr` (references), `gri` (implementation), `grt` (type
+  definition), `gO` (document symbols), `K` (hover), `<C-s>` (signature help,
+  insert mode), `[d`/`]d`/`[D`/`]D` (diagnostic nav), `<C-w>d` (diagnostic
+  float). Only `gd` (go to definition) isn't a default and is added in `lsp.lua`.
+- **Comments**: native `gc`/`gcc`.
+- **Diagnostics list**: `<leader>xx` → `vim.diagnostic.setloclist()`, no separate UI plugin.
 
 ## Key Mappings
 
-### Leader Keys
-- Leader: `,`
-- Local leader: `\`
+- Leader: `,` / Local leader: `\`
+- `<C-h/j/k/l>` - window navigation
+- `<C-Up/Down/Left/Right>` - window resize
+- `-` - open oil.nvim (parent directory of current file)
+- `<leader>ff` / `<leader>fg` / `<leader>fb` - telescope find files / live grep / buffers
+- `<leader>gg` - open Neogit
+- `]c` / `[c` - next/previous git hunk
+- `<leader>hs` / `<leader>hr` - stage/reset git hunk
+- `gd` - go to definition
+- `<leader>f` - format buffer
+- `<leader>xx` - buffer diagnostics (location list)
+- `gcc` / `gc` - comment line / selection (native)
+- `<` / `>` - indent left/right, stays in visual mode
 
-### Window Navigation
-- `<C-h>` - Move to left window
-- `<C-j>` - Move to down window
-- `<C-k>` - Move to up window
-- `<C-l>` - Move to right window
+Everything else LSP-related (`grn`, `gra`, `grr`, `gri`, `grt`, `gO`, `K`,
+diagnostic nav) is a Neovim core default — see `:h lsp-defaults`.
 
-### Window Resize
-- `<C-Up>` - Decrease height
-- `<C-Down>` - Increase height
-- `<C-Left>` - Increase width
-- `<C-Right>` - Decrease width
+## LSP servers
 
-### File Explorer (Neo-tree)
-- `<C-\>` - Toggle file tree
-- `<leader>b` - Toggle buffer list
-- `<leader>s` - Show git status
+- **clangd** - C/C++/Objective-C/CUDA, with `:LspClangdSwitchSourceHeader`
+- **lua_ls** - Lua, configured for editing this Neovim config
+- **cmake-language-server** - CMake
 
-### Telescope
-- `<leader>ff` - Find files
-- `<leader>fg` - Live grep
-- `<leader>fb` - Find buffers
-- `<leader>fr` - Find references
-- `<leader>fR` - Resume last search
-- `<leader>ss` - Document symbols
-- `<leader>sS` - Workspace symbols
-
-### Flash.nvim (Motion)
-- `s` - Jump to location
-- `S` - Treesitter selection
-- `r` - Remote flash (operator mode)
-- `R` - Treesitter search
-
-### LSP
-- `gd` - Go to definition
-- `gr` - Go to references
-- `gi` - Go to implementation
-- `K` - Hover documentation
-- `ca` - Code action
-- `<space>rn` - Rename symbol
-- `<leader>f` - Format buffer
-
-### Clangd Specific
-- `:LspClangdSwitchSourceHeader` - Switch between .h and .cpp
-
-### Trouble (Diagnostics)
-- `<leader>xx` - Toggle diagnostics
-- `<leader>xX` - Buffer diagnostics
-- `<leader>cs` - Symbols
-- `<leader>cl` - LSP definitions/references
-- `<leader>xL` - Location list
-- `<leader>xQ` - Quickfix list
-
-### DAP (Debugging)
-- `<leader>db` - Toggle breakpoint
-- `<leader>dc` - Continue
-- `<leader>di` - Step into
-- `<leader>do` - Step over
-- `<leader>dO` - Step out
-- `<leader>dr` - Open REPL
-- `<leader>dl` - Run last
-- `<leader>du` - Toggle DAP UI
-
-### Editing
-- `gcc` - Comment/uncomment line
-- `gc` - Comment/uncomment selection (visual mode)
-- `<leader>bd` - Delete buffer (preserves layout)
-- `<` / `>` - Indent left/right (stays in visual mode)
-
-### Go Specific
-- `:GoTest` - Run tests
-- `:GoTestFunc` - Test current function
-- Auto-format with goimports on save
-
-## LSP Servers
-
-The following LSP servers are configured and auto-installed via Mason:
-
-- **clangd** - C/C++/CUDA (with source/header switching)
-- **gopls** - Go (with GOMODCACHE handling)
-- **lua_ls** - Lua (Neovim runtime configured)
-- **ruff** - Python (linting + formatting)
-- **ts_ls** - TypeScript/JavaScript
-- **yaml_ls** - YAML
-- **bash_ls** - Bash
-- **cmake_ls** - CMake
-- **marksman** - Markdown
-- **taplo** - TOML
-- **buf_ls** - Protocol Buffers
-- **docker_language_server** - Docker
-
-## Formatters
-
-Configured via conform.nvim:
-
-- **Lua**: stylua
-- **Rust**: rustfmt
-- **C/C++**: clang-format
-- **Python**: ruff_format (fallback: black)
-- **CMake**: gersemi
-- **Proto**: buf
-- **TOML**: taplo
-- **Go**: goimports (via go.nvim)
-
-## DAP Debuggers
-
-Debugging support for:
-
-- **Go**: delve (dlv)
-- **Python**: debugpy
-- **C/C++**: lldb-dap
+No Mason — install these via your system package manager (or `pip install
+cmake-language-server`) before first use. `ripgrep` is required for
+telescope's live grep.
 
 ## Installation
 
-1. Make sure you have Neovim 0.11+ installed
-2. Clone this config or symlink it to `~/.config/nvim`
-3. Start Neovim - Lazy.nvim will automatically install
-4. Run `:Lazy sync` to install all plugins
-5. Run `:Mason` to verify LSP server installation
-6. Install debuggers manually:
-   - Go: `go install github.com/go-delve/delve/cmd/dlv@latest`
-   - Python: `pip install debugpy`
-   - C/C++: Install lldb-dap (usually in LLVM package)
-
-## Requirements
-
-- Neovim >= 0.11
-- Git
-- Ripgrep (for Telescope grep)
-- fd or find (for Telescope file finding)
-- A Nerd Font for icons
-- gcc/make (for telescope-fzf-native)
-- Language-specific tools:
-  - Go: go toolchain
-  - Python: python3
-  - C/C++: clang/clangd
-  - Node.js: for TypeScript
-
-## Tips
-
-- Use `:checkhealth` to verify your setup
-- Use `:Lazy` to manage plugins
-- Use `:Mason` to manage LSP servers/formatters
-- Format on save is disabled by default (uncomment in `config/autocmds.lua` to enable)
-- Use `:h <plugin-name>` for plugin help
-
-## Customization
-
-- **Options**: Edit `lua/config/options.lua`
-- **Keymaps**: Edit `lua/config/keymaps.lua`
-- **Plugins**: Edit files in `lua/plugins/`
-- **LSP servers**: Edit `lua/lsp/servers.lua`
-- **Autocommands**: Edit `lua/config/autocmds.lua`
+1. Neovim >= 0.12 (for `vim.pack` and `vim.lsp.completion.enable`)
+2. Install the LSP binaries above, plus `clang-format` for C/C++ formatting
+3. Symlink this directory to `~/.config/nvim` and start Neovim — `vim.pack.add()`
+   in `plugins.lua` clones the 6 plugins on first run
+4. `:restart` once the initial install finishes

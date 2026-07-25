@@ -101,9 +101,6 @@ if vim.fn.isdirectory(undodir) == 0 then
     vim.fn.mkdir(undodir, "p")
 end
 
-vim.g.autoformat = true
-vim.g.trouble_lualine = true
-
 vim.opt.jumpoptions = "view"
 vim.opt.laststatus = 3    -- global statusline
 vim.opt.list = false

@@ -4,9 +4,7 @@ vim.g.maplocalleader = "\\"
 
 -- Load config modules
 require("config.options")
-require("config.lazy") -- Loads all plugins
+require("config.plugins") -- vim.pack: installs & configures plugins
+require("config.lsp")
 require("config.autocmds")
 require("config.keymaps")
-
--- OCaml support
-vim.opt.rtp:prepend("/home/nikon/.opam/default/share/ocp-indent/vim")
