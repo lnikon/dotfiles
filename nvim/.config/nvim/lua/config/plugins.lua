@@ -6,17 +6,17 @@ vim.pack.add({
     gh("nvim-lua/plenary.nvim"),
     gh("nvim-telescope/telescope.nvim"),
     gh("stevearc/oil.nvim"),
+    gh("nvim-mini/mini.files"),
     gh("lewis6991/gitsigns.nvim"),
     gh("sindrets/diffview.nvim"),
     gh("NeogitOrg/neogit"),
     gh("nvim-treesitter/nvim-treesitter"),
-    gh("felipefdl/warm-burnout"),
+    gh("mason-org/mason.nvim"),
+    gh("folke/persistence.nvim"),
+    gh("rebelot/kanagawa.nvim")
 }, { load = true })
 
--- warm-burnout ships its colorscheme files under an `nvim/` subdirectory
-local warm_burnout = vim.pack.get({ "warm-burnout" })[1]
-vim.opt.rtp:append(warm_burnout.path .. "/nvim")
-vim.cmd.colorscheme("warm-burnout-dark")
+vim.cmd.colorscheme("kanagawa")
 
 require("nvim-treesitter").install({ "c", "cpp", "lua", "cmake" })
 vim.api.nvim_create_autocmd("FileType", {
@@ -57,3 +57,19 @@ require("gitsigns").setup({
 require("neogit").setup()
 
 require("telescope").setup()
+
+-- Mason prepends its bin directory to PATH, so the `cmd`s in lua/lsp/servers.lua
+-- resolve to the servers it installs. Installs run async on first start.
+require("mason").setup()
+
+local registry = require("mason-registry")
+registry.refresh(function()
+    for _, name in ipairs(require("lsp.servers").mason_packages) do
+        local pkg = registry.get_package(name)
+        if not pkg:is_installed() then
+            pkg:install()
+        end
+    end
+end)
+
+require("persistence").setup()

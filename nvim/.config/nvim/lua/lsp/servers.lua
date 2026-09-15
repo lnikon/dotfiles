@@ -1,11 +1,14 @@
 local M = {}
 
--- List of LSP servers to enable
-M.server_list = {
-    "clangd",
-    "lua_ls",
-    "cmake",
+-- LSP servers to enable, mapped to the Mason package that provides them
+M.servers = {
+    clangd = "clangd",
+    lua_ls = "lua-language-server",
+    neocmake = "neocmakelsp",
 }
+
+M.server_list = vim.tbl_keys(M.servers)
+M.mason_packages = vim.tbl_values(M.servers)
 
 -- Clangd configuration
 ---@brief
@@ -101,12 +104,12 @@ vim.lsp.config.lua_ls = {
     },
 }
 
--- Cmake configuration
+-- Neocmakelsp configuration
 ---@type vim.lsp.Config
-vim.lsp.config.cmake = {
-    cmd = { "cmake-language-server" },
+vim.lsp.config.neocmake = {
+    cmd = { "neocmakelsp", "stdio" },
     filetypes = { "cmake" },
-    root_markers = { "CMakeLists.txt", "CMakePresets.json", "CTestConfig.cmake", ".git", "build" },
+    root_markers = { ".neocmake.toml", "CMakeLists.txt", "CMakePresets.json", "CTestConfig.cmake", ".git", "build" },
 }
 
 return M

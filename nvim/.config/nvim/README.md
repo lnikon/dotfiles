@@ -21,14 +21,17 @@ wherever possible. Only 6 plugins.
 └── README.md
 ```
 
-## Plugins (6)
+## Plugins (10)
 
 - **plenary.nvim** - Lua utilities (Neogit dependency)
 - **telescope.nvim** - Fuzzy finder
 - **oil.nvim** - File manager (edit a directory as a buffer)
 - **gitsigns.nvim** - Git hunk signs/staging in the gutter
+- **diffview.nvim** - Diff/history views (Neogit dependency)
 - **neogit** - Git UI
 - **nvim-treesitter** - Syntax highlighting (parsers not bundled with Neovim: c, cpp, lua, cmake)
+- **mason.nvim** - LSP server installer
+- **persistence.nvim** - Sessions
 - **warm-burnout** - Colorscheme
 
 Managed with Neovim's built-in `vim.pack` (see `:h vim.pack`) — no plugin
@@ -60,26 +63,40 @@ manager plugin. `vim.pack.update()` checks for updates; its lockfile lives at
 - `gd` - go to definition
 - `<leader>f` - format buffer
 - `<leader>xx` - buffer diagnostics (location list)
+- `<leader>qs` / `<leader>ql` - restore session for cwd / last session
+- `<leader>qS` / `<leader>qd` - pick a session / stop saving this one
 - `gcc` / `gc` - comment line / selection (native)
 - `<` / `>` - indent left/right, stays in visual mode
 
 Everything else LSP-related (`grn`, `gra`, `grr`, `gri`, `grt`, `gO`, `K`,
 diagnostic nav) is a Neovim core default — see `:h lsp-defaults`.
 
+## Sessions
+
+`persistence.nvim` saves a session per working directory (and per git branch,
+when it isn't `main`/`master`) to `~/.local/state/nvim/sessions/`. Saving is
+automatic on exit; restoring never is — Neovim always starts clean and you ask
+for the session with `<leader>qs`. `sessionoptions` is set in `options.lua`.
+
 ## LSP servers
+
+Installed and updated with `mason.nvim` (`:Mason` for the UI). The server
+list lives in `lua/lsp/servers.lua`, which maps each `vim.lsp` config name to
+its Mason package; `plugins.lua` installs anything missing on startup. Mason
+prepends `~/.local/share/nvim/mason/bin` to `PATH`, so the `cmd` in each server
+config resolves to the Mason copy rather than a system one.
 
 - **clangd** - C/C++/Objective-C/CUDA, with `:LspClangdSwitchSourceHeader`
 - **lua_ls** - Lua, configured for editing this Neovim config
-- **cmake-language-server** - CMake
+- **neocmakelsp** - CMake (Rust binary; replaced the Python `cmake-language-server`
+  so Mason never has to build a pip venv)
 
-No Mason — install these via your system package manager (or `pip install
-cmake-language-server`) before first use. `ripgrep` is required for
-telescope's live grep.
+`ripgrep` is required for telescope's live grep.
 
 ## Installation
 
 1. Neovim >= 0.12 (for `vim.pack` and `vim.lsp.completion.enable`)
-2. Install the LSP binaries above, plus `clang-format` for C/C++ formatting
-3. Symlink this directory to `~/.config/nvim` and start Neovim — `vim.pack.add()`
-   in `plugins.lua` clones the 6 plugins on first run
-4. `:restart` once the initial install finishes
+2. Symlink this directory to `~/.config/nvim` and start Neovim — `vim.pack.add()`
+   in `plugins.lua` clones the plugins, then Mason installs the LSP servers
+3. `:restart` once the initial install finishes (`:Mason` shows progress)
+4. `clang-format` still comes from your system package manager (C/C++ formatting)

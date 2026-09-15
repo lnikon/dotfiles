@@ -1,5 +1,7 @@
 -- Hint: use `:h <option>` to figure out the meaning if needed
-vim.opt.completeopt = { "menu", "menuone", "noselect" }
+-- "noselect" so a stray <CR>/<Tab> never accepts an item you didn't pick;
+-- "popup" shows the LSP's resolved docs for the selected item
+vim.opt.completeopt = { "menu", "menuone", "noselect", "popup" }
 vim.opt.mouse = "a" -- allow the mouse to be used in nvim
 
 -- Tab
@@ -55,6 +57,9 @@ vim.opt.timeoutlen = vim.g.vscode and 1000 or 300 -- Lower than default (1000) t
 vim.opt.ttimeoutlen = 0                           -- Key code timeout
 vim.opt.autoread = true                           -- Auto reload files changed outside vim
 vim.opt.autowrite = true                          -- Auto save
+
+-- Sessions - drop "blank", add globals/localoptions/winpos
+vim.opt.sessionoptions = "buffers,curdir,folds,globals,help,localoptions,tabpages,terminal,winpos,winsize"
 
 -- Behavior settings
 vim.opt.hidden = true                                       -- Allow hidden buffers
